@@ -1,0 +1,29 @@
+<h3>User情報の更新ができます</h3>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-5">
+			<h3>User</h3>
+
+			<% if @user.image_id? %>
+				<%= attachment_image_tag @user, :image, :fill, 200, 200, format: 'jpeg' %>
+			<% else %>
+				<%= image_tag('image/no-image.png', style: "width: 200px; height: 200px;") %>
+			<% end %>
+
+			<p><%= @user.name %>さん</p>
+		</div>
+		<div class="col-lg-7">
+			<%= form_for(@user) do |f| %>
+				<p>Name</p>
+				<%= f.text_field :name %>
+				<div class="post-user-image">
+					<p>Image</p>
+					<%= f.attachment_field :image %>
+				</div>
+
+				<%= f.submit 'Update user', class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>

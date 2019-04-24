@@ -1,0 +1,5 @@
+
+$('#relationships_buttons_<%= @post_image.id %>').html("<%= j(render partial: 'users/relationship', locals: {post_image: @post_image}) %>");
+
+
+$('#relationships_show_buttons_<%= @user.id %>').html("<%= j(render partial: 'users/relationship_show', locals: {user: @user}) %>");

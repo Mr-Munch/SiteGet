@@ -1,0 +1,10 @@
+
+<% if post_image.favorited_by?(current_user) %>
+	<%= link_to site_post_image_favorites_path(post_image_id: post_image.id, site_id: post_image.site_id), method: :delete, remote: true  do %>
+		<i class="glyphicon glyphicon-heart" style="font-size: 40px; color: red;"><span><%= post_image.favorites.count %></span></i>
+	<% end %>
+<% else %>
+	<%= link_to site_post_image_favorites_path(post_image_id: post_image.id, site_id: post_image.site_id), method: :post, remote: true do %>
+		<i class="glyphicon glyphicon-heart" style="font-size: 38px; color: gray;"><span><%= post_image.favorites.count %></span></i>
+	<% end %>
+<% end %>

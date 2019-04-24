@@ -1,0 +1,40 @@
+// Place all the styles related to the PostComments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-form {
+	width:45%;
+	float: left;
+}
+.comment-index {
+	width: 50%;
+	float: left;
+	margin-left: 5%;
+	border-bottom: 1px solid #DDD;
+
+	p {
+		margin-bottom: 0;
+	}
+
+	img {
+		border-radius: 50%;
+	}
+
+}
+
+.balloon2 {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 5px 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 15px;
+  background: #FFFF99;
+  border-radius: 15px;
+}
+.balloon2 p {
+  margin: 0;
+  padding: 0;
+}

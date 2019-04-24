@@ -1,0 +1,37 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hokkaido-icon {
+	position: relative;
+
+	img {
+		padding-left: 70px;
+		padding-top: 30px;
+	}
+
+	.greeting-area {
+		width: 55%;
+		background-color: rgba(204,204,204,0.3);
+		position: absolute;
+		top: 140px;
+		left: 500px;
+
+		h1 {
+			padding-left: 70px;
+			margin-bottom: 80px;
+			margin-top: 90px;
+		}
+
+		p {
+			padding-left: 50px;
+			margin-bottom: 60px;
+		}
+	}
+}
+
+.botton-box {
+ 	width: 40%;
+ 	margin: 30px 300px 50px 600px;
+}
+

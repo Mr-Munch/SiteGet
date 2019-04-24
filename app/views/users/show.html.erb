@@ -1,0 +1,56 @@
+
+<div class="mypage-image">
+	<div class="container1">
+		<div class="row">
+			<section class="col-lg-3">
+				<% if @user.id == current_user.id %>
+					<% if @user.image_id? %>
+						<%= attachment_image_tag @user, :image, :fill, 250, 250, format: 'jpeg' %>
+					<% else %>
+						<%= image_tag('image/no-image.png', style: "width: 250px; height: 250px;") %>
+					<% end %>
+					<p><%= @user.name %>さん</p>
+					<%= link_to edit_user_path(params[:id]) do %>
+						<div class="btn btn-success btn-block"><span class="glyphicon glyphicon-cog" style="color: black;"></span></div>
+					<% end %>
+				<% else %>
+					<% if @user.image_id? %>
+						<%= attachment_image_tag @user, :image, :fill, 200, 200, format: 'jpeg' %>
+					<% else %>
+						<%= image_tag('image/no-image.png', style: "width: 200px; height: 200px;") %>
+					<% end %>
+					<p><%= @user.name %>さんのページです</p>
+				<% end %>
+
+				<p><%=link_to "フォロー", follows_user_path(@user.id) %></p>
+				<p><%=link_to "フォロワー", followers_user_path(@user.id) %></p>
+				<div id="relationships_show_buttons_<%= @user.id %>">
+ 					<%= render partial: 'users/relationship_show', locals: { user: @user } %>
+				</div>
+			</section>
+			<section class="col-lg-9">
+				<h3>My photo</h3>
+				<p>さっそく,写真を投稿しよう！</p>
+				<% @post_images.each do |post_image| %>
+						<div class="user-photo">
+							<%= link_to site_post_image_path(post_image.site_id, post_image.id) do %>
+								<%= attachment_image_tag post_image, :image, :fill, 700, 300, format: 'jpeg'%>
+							<% end %>
+							<% if post_image.user_id == current_user.id %>
+								<div class="photo-share">
+									<%= link_to "https://twitter.com/share?ref_src=twsrc%5Etfw" do %>
+										<div class="btn btn-primary fa fa-twitter" aria-hidden="true"> Twitter</div>
+									<% end %>
+									<%= link_to "https://www.instagram.com/?hl=ja" do %>
+										<div class="btn btn-success fa fa-instagram" aria-hidden="true"> Insta</div>
+									<% end %>
+								</div>
+							<% end %>
+						</div>
+				<% end %>
+			</section>
+		</div>
+	</div>
+</div>
+<%= paginate @post_images, class: "paginate" %>
+

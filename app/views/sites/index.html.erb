@@ -1,0 +1,33 @@
+<div class="index-all">
+	<h1>Site</h1>
+	<div class="site-index clearfix">
+		<% @sites.each do |site| %>
+			<% @post_images.each do |post_image| %>
+					<% if post_image.image_id.present? && post_image.site_id == site.id %>
+
+						<%= attachment_image_tag post_image, :image, :fill, 200, 200, format: "jpeg", class: "img-responsive thumbnail　aligncenter size-full wp-image-425 ", :data => {:toggle=>"modal", :target => "#modal-image", :backdrop => "true"}, style: "cursor:pointer" %>
+
+						<!-- 2.モーダルの配置 -->
+						<div class="modal fade" id="modal-image" tabindex="-1">
+							<div class="modal-dialog modal-lg modal-dialog-center">
+								<div class="modal-content clearfix">
+							        <div class="modal-body">
+							            <%= attachment_image_tag post_image, :image, :fill, 500, 400, format: "jpeg", class: "aligncenter size-full wp-image-425 big-image" %>
+								        <div class="body-text">
+								         	<h3><%= site.name %></h3>
+								         	<h4>Caption</h4>
+								            <p><%= site.caption %></p>
+								        </div>
+								    </div>
+								</div>
+							</div>
+						</div>
+					<% else %>
+						<%= link_to site_path(site.id), class: "no-image" do  %>
+							<%= render 'sites/site', site: site %>
+						<% end %>
+					<% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

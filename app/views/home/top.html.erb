@@ -1,0 +1,16 @@
+<div class="home">
+	<div class="hokkaido-icon">
+		<%= image_tag('image/Hokkaido_icon.jpeg') %>
+		<section class="greeting-area">
+			<h1 class="greeting">Site-Get へようこそ！</h1>
+			<p class="greeting-text1">このサイトは、北海道の自然・景観をより楽しんで頂くことを目的にした写真投稿サイトです。<br>
+				写真を投稿することで、白黒の写真を自身で<span>カラー写真</span>に塗り替えていきましょう！</p>
+
+			<p class="greeting-text2">実際に訪れて見た景色は白黒写真もあいまって、よりあなたに感動を与えてくれるでしょう！</p>
+		</section>
+	</div>
+	<div class="botton-box">
+		<%= link_to "Log in", new_user_session_path, class: "btn btn-primary btn-block " %>
+		<%= link_to "Sign up", new_user_registration_path, class: "btn btn btn-info btn-block " %>
+	</div>
+</div>

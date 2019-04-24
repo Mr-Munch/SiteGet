@@ -1,0 +1,113 @@
+<% breadcrumb :users %>
+<div class="tabs">
+  <input id="all" type="radio" name="tab_item" checked>
+  <label class="tab_item" for="all"><i class="glyphicon glyphicon-heart" style="color: red;"></i>多い順</label>
+  <input id="programming" type="radio" name="tab_item">
+  <label class="tab_item" for="programming">投稿Site順</label>
+  <input id="design" type="radio" name="tab_item">
+  <label class="tab_item" for="design">穴場サイト順</label>
+  <div class="tab_content" id="all_content">
+    <div class="tab_content_description">
+      	<div class="c-txtsp slider">
+	      	<% @heart_ranks.each_with_index do |post_image, i| %>
+	      		<div>
+					<% if i == 0 %>
+		   				<i class="fa fa-trophy" aria-hidden="true" style="font-size: 60px; color: gold;"></i>
+					<% elsif i == 1 %>
+					   	<i class="fa fa-trophy" aria-hidden="true" style="font-size: 50px; color: silver;"></i>
+					<% else  %>
+		   				<i class="fa fa-trophy" aria-hidden="true" style="font-size: 40px; color: #7A592F;"></i>
+					<% end %>
+						<%= attachment_image_tag post_image, :image, :fill, 400, 300, format: 'jpeg' %>
+					<section class="ranking-content">
+						<h3><%= post_image.user.name %>さん</h3>
+						<p><%= post_image.site.name %> の写真</p>
+						<i class="glyphicon glyphicon-heart heart" style="font-size: 40px; color: red;"><span><%= post_image.favorites.count %>個 獲得！</span>
+						</i>
+					</section>
+				</div>
+			<% end %>
+    	</div>
+  	</div>
+  </div>
+  <div class="tab_content" id="programming_content">
+    <div class="tab_content_description">
+      <div class="c-txtsp slider">
+      	<% @site_ranks.each_with_index do |site, i| %>
+      		<div>
+	    		<% if i == 0 %>
+				   	<i class="fa fa-trophy" aria-hidden="true" style="font-size: 60px; color: gold;"></i>
+				<% elsif i == 1 %>
+	   				<i class="fa fa-trophy" aria-hidden="true" style="font-size: 50px; color: silver;"></i>
+				<% else %>
+	   				<i class="fa fa-trophy" aria-hidden="true" style="font-size: 40px; color: #7A592F;"></i>
+				<% end %>
+				<div class="site-rank-image">
+					<%= render 'sites/site', site: site %>
+				</div>
+
+				<section class="ranking-content">
+					<h3><%= site.name %></h3>
+					<p><%= site.address %></p>
+					<h4><%= site.post_images.count %>人のユーザが投稿しています！</h4>
+				</section>
+			</div>
+		<% end %>
+      </div>
+    </div>
+  </div>
+  <div class="tab_content" id="design_content">
+    <div class="tab_content_description">
+      	<div class="c-txtsp slider">
+    		<% @site_ranks_two.each_with_index do |site, i| %>
+    			<div>
+					<i class="fa fa-user-times" aria-hidden="true" style="font-size: 50px; color: #00AA00;"></i>
+
+					<div class="site-rank-image">
+						<%= render 'sites/site', site: site %>
+					</div>
+
+					<section class="ranking-content">
+					   	<h3><%= site.name %></h3>
+						<p><%= site.address %></p>
+						<h4 class="no-people">まだ誰も訪れていません！</h4>
+			   		</section>
+			   	</div>
+		   	<% end %>
+     	</div>
+    </div>
+  </div>
+</div>
+
+<h1 class="mini-title"><i class="fa fa-comments" aria-hidden="true" style="font-size: 40px; color: #00CED1;"></i> みんなの投稿</h1>
+<div class="all-post-box">
+	<% @post_images.each do |post_image| %>
+		<div class="all-post clearfix">
+			<%= link_to site_post_image_path(post_image.site_id, post_image.id) do %>
+				<div class="user-image"><%= attachment_image_tag post_image, :image, :fill, 400, 300, format: 'jpeg' %></div>
+			<% end %>
+
+		    <div class="user-image-content clearfix">
+		    	<%= link_to user_path(post_image.user_id) do %>
+		    		<p><span class="glyphicon glyphicon-user"></span><%= post_image.user.name %>さん</p>
+		    	<% end %>
+		    	<div class="balloon1-top">
+		    		<p><%= post_image.comment %></p>
+		    	</div>
+		    	<div id="favorites_buttons_<%= post_image.id %>" class="heart-botton">
+	 				<%= render partial: 'post_images/favorite', locals: { post_image: post_image } %>
+				</div>
+				<div class="two-botton">
+					<% if post_image.user_id != current_user.id %>
+						<%= link_to site_post_image_path(post_image.site_id, post_image.id) do %>
+							<div class="btn btn-warning btn-block comment-link">コメントする</div>
+						<% end %>
+					<% end %>
+					<div class="index-follow" id="relationships_buttons_<%= post_image.id %>">
+ 						<%= render partial: 'users/relationship', locals: { post_image: post_image } %>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>

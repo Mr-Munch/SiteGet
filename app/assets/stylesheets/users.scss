@@ -1,0 +1,256 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mypage-image {
+  background-image: url("image/sky.jpeg");
+  background-size: 1280px 250px;
+  background-repeat: no-repeat;
+  background-position: top;
+  margin: 0;
+}
+
+.container1 {
+  padding-top: 150px;
+  padding-left: 50px;
+  padding-right: 60px;
+
+}
+
+div.breadcrumbs {
+  margin-left: 30px;
+}
+
+.col-lg-3 {
+  margin: 20px auto;
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+
+  p {
+    margin-top: 20px;
+    font-size: 20px;
+    color: black;
+  }
+
+  img {
+    border-radius: 50%;
+    padding: 5px;
+    border: solid 2px blue;
+  }
+}
+.col-lg-9 {
+  padding-top: 100px;
+
+  h3, p, .user-photo {
+    padding-left: 60px;
+  }
+
+
+  .user-photo {
+    border-bottom: solid 2px blue;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    margin-top: 40px;
+
+    img {
+      border-radius: 10px;
+    }
+  }
+}
+
+.col-lg-5 {
+  text-align: center;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.all-post {
+  border:solid 2px #3333ff;
+  border-radius: 10px;
+  padding: 20px;
+	margin: 20px auto;
+	width: 80%;
+}
+.user-image {
+	float: left;
+	width: 50%;
+	padding-left: 30px;
+}
+
+.user-image-content {
+	float: left;
+	width: 50%;
+
+	p {
+		font-size: 20px;
+	}
+  .heart-botton {
+    float: left;
+  }
+  .two-botton{
+    float: left;
+    padding-left: 30px;
+    width: 300px;
+  }
+
+}
+
+
+.balloon1-top {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 420px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+}
+
+.balloon1-top:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 10%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-bottom: 15px solid #e0edff;
+}
+
+.balloon1-top p {
+  margin: 0;
+  padding: 0;
+  width:400px;
+}
+
+.user-comment {
+  width: 700px;
+}
+
+.photo-share {
+  padding-left: 530px;
+  margin-top: 20px;
+}
+
+.post-user-image {
+  margin-bottom: 20px;
+}
+
+
+.tabs {
+  margin-top: 50px;
+  padding-bottom: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 900px;
+  margin: 0 auto;}
+
+/*タブのスタイル*/
+.tab_item {
+  width: calc(100%/3);
+  height: 50px;
+  border-bottom: 3px solid #5ab4bd;
+  background-color: #d9d9d9;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  padding: 20px 20px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#all:checked ~ #all_content,
+#programming:checked ~ #programming_content,
+#design:checked ~ #design_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background-color: #5ab4bd;
+  color: #fff;
+}
+
+.c-txtsp {
+  div {
+    background-color: rgba(201,231,233,0.2);
+  }
+
+  i {
+    float: left;
+  }
+
+  img {
+    float:left;
+    margin:20px;
+  }
+
+  .site-rank-image img {
+    float: left;
+    height: 300px;
+    width: 400px;
+  }
+
+  .site-rank-image p.No_photo,
+  .site-rank-image p.Material-original {
+    display: none;
+  }
+
+  .ranking-content {
+    float: left;
+    margin-left: 40px;
+    padding-top:50px;
+
+    h4.no-people {
+      color:red;
+    }
+  }
+}
+
+
+
+
+
+
+.ranking-content .heart {
+  padding-top: 30px;
+}
+
+h1.mini-title {
+  display:inline-block;
+  margin-left:40px;
+  border-bottom: solid 2px #00CCFF;
+}
+
+.heart-botton {
+  float: left;
+  margin-left: 50px;
+}
+.comment-link, .index-follow {
+  margin-top: 10px;
+}
