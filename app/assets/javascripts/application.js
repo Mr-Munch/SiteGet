@@ -23,12 +23,9 @@ $(document).ready(function(){
     $('#show-site').css('opacity', '.2').animate({'opacity': '1'}, "fast");
   });
 
-
-
 });
 
 $(window).load(function () {
   $('#show-post_image img').css('opacity', '.2').animate({'opacity': '1'}, 5000);
 
-  $('#camera').jrumble();
 });

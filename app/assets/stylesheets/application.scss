@@ -424,4 +424,17 @@ li.post-menu {
         width: 320px;
       }
   }
+
+  .index-all {
+    width: 100%;
+
+    .site-index {
+      width: 90%;
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
 }
