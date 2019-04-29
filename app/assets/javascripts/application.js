@@ -16,3 +16,19 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require jquery.slick
+
+$(document).ready(function(){
+
+  $('.camera-mark').click(function(){
+    $('#show-site').css('opacity', '.2').animate({'opacity': '1'}, "fast");
+  });
+
+
+
+});
+
+$(window).load(function () {
+  $('#show-post_image img').css('opacity', '.2').animate({'opacity': '1'}, 5000);
+
+  $('#camera').jrumble();
+});

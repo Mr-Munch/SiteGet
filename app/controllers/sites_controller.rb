@@ -18,5 +18,7 @@ class SitesController < ApplicationController
 	def index
 		@post_images = PostImage.where(user_id: current_user.id)
 		@sites = Site.all
+
+
 	end
 end

@@ -2,10 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.post_image-title {
+	padding-left: 30px;
+}
 
 .comment-box {
 	width:60%;
 	margin-top: 20px;
+	margin-bottom: 40px;
 	padding-left: 100px;
 }
 
@@ -33,3 +37,4 @@
   text-align:left;
   width: 70%
 }
+

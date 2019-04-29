@@ -1,6 +1,6 @@
-<h1><%= @site.name %></h1>
+<h1 class="site-title"><%= @site.name %></h1>
 
-<div class="post-box clearfix">
+<div class="post-box clearfix" id="show-site">
 	<% if @post_image.image_id? %>
 		<%= attachment_image_tag @post_image, :image, :fill, 1024, 500, format: 'jpeg'%>
 	<% else %>
@@ -51,10 +51,9 @@
 		<div class="photo-post">
 			<%= f.attachment_field :image %>
 			<%= f.text_area :comment, placeholder: "撮影時の感想を書いてね！" %>
-			<%= f.submit "投稿する", class: "btn btn-info btn-block" %>
 		</div>
-		<div class="camera-mark">
-			<%= image_tag('image/カメラアイコン8.jpeg', style: "width: 300px; height: 300px;") %>
+		<div class="camera-mark" id="camera">
+			<%= image_submit_tag "image/カメラアイコン8.jpeg" %>
 		</div>
 	<% end %>
 

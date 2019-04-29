@@ -1,12 +1,30 @@
-<h1><%= @user.name %>さんがフォロしているユーザです</h1>
-<% @users.each do |user| %>
-  <hr>
-  <p><span>email: </span><%= link_to user.email, user_path(user.id) %></p>
-    <% if current_user != user %>
-        <% if user.followed_by?(current_user) %>
-            <p><%=link_to "フォロー済み", user_relationships_path(user.id), method: :delete %></p>
-        <% else %>
-            <p><%=link_to "フォローする", user_relationships_path(user.id), method: :post %></p>
-        <% end %>
-    <% end %>
-<% end %>
+
+<div class="container">
+	<div class="row">
+		<section class="col-lg-2"></section>
+		<section class="col-lg-11">
+			<h3><%= @user.name %>さんがフォローしているユーザです</h3>
+			<table class="follow-index">
+				<% @users.each do |user| %>
+				    <% if current_user != user %>
+				    	<tr>
+					    	<td><% if user.image_id? %>
+								<%= attachment_image_tag user, :image, :fill, 70, 70, format: 'jpeg', style: "border-radius: 50%;" %>
+							<% else %>
+								<%= image_tag('image/no-image.png', style: "width: 70px; height: 70px; border-radius: 50%;") %>
+							<% end %></td>
+
+				    		<td><p><%= user.name %></p></td>
+
+					        <td>
+						        <div id="relationships_show_buttons_<%= user.id %>">
+			 						<%= render partial: 'users/relationship_show', locals: { user: user } %>
+								</div>
+							</td>
+						</tr>
+				    <% end %>
+				<% end %>
+			</table>
+		</section>
+	</div>
+</div>

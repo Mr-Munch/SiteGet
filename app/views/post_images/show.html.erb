@@ -1,6 +1,6 @@
-<h1><%= @site.name %></h1>
+<h1 class="post_image-title"><%= @site.name %></h1>
 
-<div class="post-box clearfix">
+<div class="post-box clearfix" id="show-post_image">
 
 	<%= attachment_image_tag @post_image, :image, :fill, 1024, 500, format: 'jpeg'%>
 
@@ -10,11 +10,6 @@
  			<%= render partial: 'post_images/favorite', locals: { post_image: @post_image } %>
 		</div>
 
-		<% if @post_image.user_id == current_user.id %>
-			<div class="btn btn-default pull-right">
-				<%= link_to "削除", site_post_image_path(@post_image.site_id, @post_image.id), method: :delete %>
-			</div>
-		<% end %>
 
 		<div class="comment-box">
 			<h4>comment</h4>
@@ -22,7 +17,7 @@
 		</div>
 
 		<div class="spot">
-			<h3>spot<span>住所: <%= @site.address %></span></h3>
+			<h3>spot<span><%= @site.address %></span></h3>
 			<div id="map-2"></div>
 
 			<script>
@@ -60,8 +55,21 @@
 			async defer></script>
 		</div>
 		<div class="info-content">
-			<h3>info</h3>
-			<div class="content"><%= @site.caption %></div>
+			<h3>message</h3>
+			<div class="content">
+				<% @post_image.post_comments.each do |post_comment| %>
+		            <div class="comment-user">
+		            	<% if post_comment.user.image_id? %>
+							<%= attachment_image_tag post_comment.user, :image, :fill, 50, 50, format: 'jpeg' %>
+						<% else %>
+							<%= image_tag('image/no-image.png', style: "width: 50px; height: 50px;") %>
+						<% end %>
+		            	<%= post_comment.user.name %>
+		            	<span><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
+		            </div>
+		            <div class="balloon2"><p><%= post_comment.comment %></p></div>
+		    	<% end %>
+			</div>
 	    </div>
 	<% else %>
 		<div id="favorites_buttons_<%= @post_image.id %>">
@@ -73,12 +81,12 @@
 			<div class="comment-form">
 				<%= form_for([@site, @post_image, @post_comment]) do |f| %>
 					<%= f.text_area :comment, rows:'3', class: "form-control",placeholder: "コメントをここに" %>
-					<%= f.submit "送信する", class: "btn btn-lg btn-info btn-base-1 mt-20 pull-right" %>
+					<%= f.submit "送信する", class: "btn btn-lg btn-info btn-base-1 mt-20 " %>
 				<% end %>
 			</div>
+			<div class="comment-index">
 				<% @post_image.post_comments.each do |post_comment| %>
-				<div class="comment-index">
-		            <p>
+		            <div class="comment-user">
 		            	<% if post_comment.user.image_id? %>
 							<%= attachment_image_tag post_comment.user, :image, :fill, 50, 50, format: 'jpeg' %>
 						<% else %>
@@ -86,7 +94,7 @@
 						<% end %>
 		            	<%= post_comment.user.name %>
 		            	<span><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
-		            </p>
+		            </div>
 		            <div class="balloon2"><p><%= post_comment.comment %></p></div>
 		    	<% end %>
 		    </div>

@@ -22,12 +22,14 @@
 								</div>
 							</div>
 						</div>
-					<% else %>
-						<%= link_to site_path(site.id), class: "no-image" do  %>
-							<%= render 'sites/site', site: site %>
-						<% end %>
+						<% break %>
 					<% end %>
+					<%= link_to site_path(site.id), class: "no-image" do  %>
+						<%= render 'sites/site', site: site %>
+					<% end %>
+					<% break %>
 			<% end %>
 		<% end %>
 	</div>
 </div>
+

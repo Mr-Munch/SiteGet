@@ -4,12 +4,13 @@
     <title>SiteGet</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <div class="wrapper">
     <header>
       <% if user_signed_in? %>
         <nav>
@@ -202,5 +203,7 @@
     <footer>
       <p>Site-Get.com</p>
     </footer>
+  </div>
+  <script type="text/javascript" src="js/jrumble.1.0.js"></script>
   </body>
 </html>

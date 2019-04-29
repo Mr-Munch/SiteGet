@@ -15,10 +15,10 @@ class PostImagesController < ApplicationController
 		post_image.site_id = params[:site_id]
 
 		if post_image.save
-			flash[:notice] = "写真を投稿しました"
+			flash[:notice] = "写真を投稿しました! 図鑑に新しい情報があります"
 			redirect_to site_post_image_path(post_image.site_id, post_image.id)
 		else
-			
+			flash[:notice] = "エラーです。もう一度やり直してください"
 		end
 	end
 
