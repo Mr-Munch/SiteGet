@@ -13,7 +13,6 @@ class PostImagesController < ApplicationController
 		post_image = PostImage.new(post_image_params)
 		post_image.user_id = current_user.id
 		post_image.site_id = params[:site_id]
-
 		if post_image.save
 			flash[:notice] = "写真を投稿しました! 図鑑に新しい情報があります"
 			redirect_to site_post_image_path(post_image.site_id, post_image.id)

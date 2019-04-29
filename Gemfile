@@ -77,6 +77,7 @@ gem 'gretel'
 gem 'jquery-slick-rails'
 
 gem 'kaminari','~> 1.1.1'
+gem 'pry-rails'
 
 
 group :production do

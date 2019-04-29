@@ -99,7 +99,7 @@
 				</div>
 				<div class="two-botton">
 					<% if post_image.user_id != current_user.id %>
-						<%= link_to site_post_image_path(post_image.site_id, post_image.id) do %>
+						<%= link_to site_post_image_path(site_id: post_image.site_id, id: post_image.id) do %>
 							<div class="btn btn-warning btn-block comment-link">コメントする</div>
 						<% end %>
 					<% end %>
