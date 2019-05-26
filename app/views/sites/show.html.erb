@@ -49,8 +49,12 @@
 	<h3>post</h3>
 	<%= form_for([@site, @post_image]) do |f| %>
 		<div class="photo-post">
+			<p>* 加工していない、ありのままの写真を投稿しよう！</p>
 			<%= f.attachment_field :image %>
 			<%= f.text_area :comment, placeholder: "撮影時の感想を書いてね！" %>
+			<div class="arrow">
+  				<p>カメラをクリックで投稿！</p>
+			</div>
 		</div>
 		<div class="camera-mark" id="camera">
 			<%= image_submit_tag "image/カメラアイコン8.jpeg" %>

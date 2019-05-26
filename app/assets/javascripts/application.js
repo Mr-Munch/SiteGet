@@ -19,6 +19,21 @@
 
 $(document).ready(function(){
 
+  $('#camera').hover(
+        function() {
+            $('#camera input').animate({
+            	'width' :'300px',
+            	'height' :'300px'
+            }, 1000);
+        },
+        function() {
+            $('#camera input').animate({
+            	'width' :'256px',
+            	'height' :'256px'
+            }, 1000);
+        }
+    );
+
   $('.camera-mark').click(function(){
     $('#show-site').css('opacity', '.2').animate({'opacity': '1'}, "fast");
   });
