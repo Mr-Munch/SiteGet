@@ -16,6 +16,18 @@
 			<%= @post_image.comment %>
 		</div>
 
+		<div class="site-caption">
+			<h3>caption</h3>
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h5 class="panel-title"><%= @site.name %> メモ！</h5>
+				</div>
+				<div class="panel-body">
+					<%= @site.caption %>
+				</div>
+			</div>
+		</div>
+
 		<div class="spot">
 			<h3>spot<span><%= @site.address %></span></h3>
 			<div id="map-2"></div>
